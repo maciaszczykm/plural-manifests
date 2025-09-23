@@ -5,7 +5,7 @@ metadata:
 spec:
   git:
     folder: manifests/failing-service
-    ref: master
+    ref: main
   repositoryRef:
     kind: GitRepository
     name: plural-manifests
