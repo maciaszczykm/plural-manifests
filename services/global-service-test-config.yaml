@@ -1,0 +1,15 @@
+apiVersion: deployments.plural.sh/v1alpha1
+kind: GlobalService
+metadata:
+  name: test-config
+  namespace: default
+spec:
+  interval: 1m
+  template:
+    name: test-config
+    repositoryRef:
+      kind: GitRepository
+      name: plural-manifests
+    git:
+      folder: service-test-config
+      ref: main
