@@ -1,0 +1,16 @@
+apiVersion: deployments.plural.sh/v1alpha1
+kind: ServiceDeployment
+metadata:
+  name: test-example-duplicate
+spec:
+  namespace: test-example
+  git:
+    folder: service-test-example
+    ref: main
+  repositoryRef:
+    kind: GitRepository
+    name: plural-manifests
+  clusterRef:
+    kind: Cluster
+    name: target-cluster
+    namespace: default

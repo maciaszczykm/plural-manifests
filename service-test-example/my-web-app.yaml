@@ -1,0 +1,29 @@
+apiVersion: example.com/v1
+kind: WebApp
+metadata:
+  name: my-web-app
+  namespace: default
+  labels:
+    app: my-web-app
+    version: v1.0.0
+spec:
+  image: nginx:1.21
+  replicas: 3
+  port: 80
+  environment:
+  - name: ENV
+    value: production
+  - name: LOG_LEVEL
+    value: info
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+status:
+  phase: Running
+  message: "WebApp is running successfully"
+  readyReplicas: 3
+
