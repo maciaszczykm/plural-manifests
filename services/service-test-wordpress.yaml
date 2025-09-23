@@ -1,0 +1,16 @@
+apiVersion: deployments.plural.sh/v1alpha1
+kind: ServiceDeployment
+metadata:
+  name: test-wordpress
+spec:
+  helm:
+    url: https://charts.bitnami.com/bitnami
+    values:
+      image:
+        debug: true
+    chart: wordpress
+    version: 26.0.0
+  clusterRef:
+    kind: Cluster
+    name: mgmt
+    namespace: default
