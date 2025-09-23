@@ -12,5 +12,5 @@ spec:
     name: plural-manifests
   clusterRef:
     kind: Cluster
-    name: mgmt
+    name: target-cluster
     namespace: default
