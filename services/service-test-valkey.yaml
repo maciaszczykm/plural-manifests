@@ -10,7 +10,7 @@ spec:
     values:
       image:
         debug: true
-    chart: valkey
+    chart: bitnami/valkey
   clusterRef:
     kind: Cluster
     name: mgmt
