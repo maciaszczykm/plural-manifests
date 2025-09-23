@@ -3,13 +3,14 @@ kind: ServiceDeployment
 metadata:
   name: test-wordpress
 spec:
+  namespace: test-wordpress
   helm:
     url: https://charts.bitnami.com/bitnami
+    version: 26.0.0
     values:
       image:
         debug: true
     chart: wordpress
-    version: 26.0.0
   clusterRef:
     kind: Cluster
     name: mgmt

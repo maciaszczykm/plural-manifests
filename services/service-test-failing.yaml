@@ -3,6 +3,7 @@ kind: ServiceDeployment
 metadata:
   name: test-failing
 spec:
+  namespace: test-failing
   git:
     folder: service-test-failing
     ref: main
