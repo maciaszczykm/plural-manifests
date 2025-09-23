@@ -1,10 +1,10 @@
 apiVersion: deployments.plural.sh/v1alpha1
 kind: ServiceDeployment
 metadata:
-  name: failing-service
+  name: test-failing
 spec:
   git:
-    folder: manifests/failing-service
+    folder: service-test-failing
     ref: main
   repositoryRef:
     kind: GitRepository
