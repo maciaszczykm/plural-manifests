@@ -1,0 +1,16 @@
+apiVersion: deployments.plural.sh/v1alpha1
+kind: ServiceDeployment
+metadata:
+  name: failing-service
+  namespace: failing-service
+spec:
+  git:
+    folder: manifests/failing-service
+    ref: master
+  repositoryRef:
+    kind: GitRepository
+    name: plural-manifests
+  clusterRef:
+    kind: Cluster
+    name: mgmt
+    namespace: default
