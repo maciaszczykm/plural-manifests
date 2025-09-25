@@ -1,0 +1,24 @@
+apiVersion: deployments.plural.sh/v1alpha1
+kind: ServiceDeployment
+metadata:
+  name: test-namespaces
+spec:
+  namespace: test-namespaces
+  syncConfig:
+    createNamespace: true
+    deleteNamespace: true
+    enforceNamespace: true
+    labels:
+      app: plural
+    annotations:
+      owner: team
+  git:
+    folder: service-test-namespaces
+    ref: main
+  repositoryRef:
+    kind: GitRepository
+    name: plural-manifests
+  clusterRef:
+    kind: Cluster
+    name: target-cluster
+    namespace: default
