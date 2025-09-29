@@ -37,5 +37,4 @@ spec:
             cpu: 100m
             memory: 128Mi
   backoffLimit: 3
-  ttlSecondsAfterFinished: 300
 
