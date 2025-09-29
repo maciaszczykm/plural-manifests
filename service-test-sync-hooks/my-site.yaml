@@ -1,0 +1,30 @@
+apiVersion: example.com/v1
+kind: Site
+metadata:
+  name: my-site
+  namespace: default
+  labels:
+    app: my-site
+    version: v1.0.0
+  annotations:
+    deployment.plural.sh/sync-wave: 10
+spec:
+  image: nginx:1.21
+  replicas: 3
+  port: 80
+  environment:
+  - name: ENV
+    value: production
+  - name: LOG_LEVEL
+    value: info
+  resources:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+status:
+  phase: Running
+  message: "Site is running successfully"
+  readyReplicas: 3

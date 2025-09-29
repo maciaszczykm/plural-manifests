@@ -1,0 +1,101 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: sites.example.com
+  labels:
+    app: site-crd
+  annotations:
+    plural.sh/sync-wave: "-5"
+spec:
+  group: example.com
+  versions:
+  - name: v1
+    served: true
+    storage: true
+    schema:
+      openAPIV3Schema:
+        type: object
+        properties:
+          spec:
+            type: object
+            properties:
+              image:
+                type: string
+                description: "Container image for the site"
+              replicas:
+                type: integer
+                minimum: 1
+                maximum: 10
+                description: "Number of replicas"
+              port:
+                type: integer
+                minimum: 1
+                maximum: 65535
+                description: "Port the site listens on"
+              environment:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    name:
+                      type: string
+                    value:
+                      type: string
+                  required:
+                  - name
+                  - value
+                description: "Environment variables"
+              resources:
+                type: object
+                properties:
+                  requests:
+                    type: object
+                    properties:
+                      cpu:
+                        type: string
+                      memory:
+                        type: string
+                  limits:
+                    type: object
+                    properties:
+                      cpu:
+                        type: string
+                      memory:
+                        type: string
+            required:
+            - image
+            - replicas
+            - port
+          status:
+            type: object
+            properties:
+              phase:
+                type: string
+                enum: ["Pending", "Running", "Failed"]
+              message:
+                type: string
+              readyReplicas:
+                type: integer
+    additionalPrinterColumns:
+    - name: Image
+      type: string
+      jsonPath: .spec.image
+    - name: Replicas
+      type: integer
+      jsonPath: .spec.replicas
+    - name: Port
+      type: integer
+      jsonPath: .spec.port
+    - name: Status
+      type: string
+      jsonPath: .status.phase
+    - name: Age
+      type: date
+      jsonPath: .metadata.creationTimestamp
+  scope: Namespaced
+  names:
+    plural: sites
+    singular: site
+    kind: Site
+    shortNames:
+    - st

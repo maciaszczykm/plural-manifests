@@ -1,0 +1,41 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: simple-log-job
+  namespace: default
+  labels:
+    app: simple-log-job
+  annotations:
+    plural.sh/sync-wave: "5"
+    deployment.plural.sh/sync-hook: "pre-sync"
+spec:
+  template:
+    metadata:
+      labels:
+        app: simple-log-job
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: logger
+        image: busybox:1.35
+        command:
+        - /bin/sh
+        - -c
+        - |
+          echo "Job started at $(date)"
+          echo "Running simple logging job..."
+          for i in $(seq 1 10); do
+            echo "Log message $i - Current time: $(date)"
+            sleep 1
+          done
+          echo "Job completed successfully at $(date)"
+        resources:
+          requests:
+            cpu: 50m
+            memory: 64Mi
+          limits:
+            cpu: 100m
+            memory: 128Mi
+  backoffLimit: 3
+  ttlSecondsAfterFinished: 300
+
