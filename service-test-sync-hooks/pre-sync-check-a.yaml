@@ -1,18 +1,19 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: simple-log-job
+  name: pre-sync-check-a
   namespace: default
   labels:
-    app: simple-log-job
+    app: pre-sync-check-a
   annotations:
-    plural.sh/sync-wave: "5"
+    plural.sh/sync-wave: "-3"
     deployment.plural.sh/sync-hook: "pre-sync"
+    deployment.plural.sh/sync-hook-delete-policy: "succeeded"
 spec:
   template:
     metadata:
       labels:
-        app: simple-log-job
+        app: pre-sync-check-a
     spec:
       restartPolicy: Never
       containers:
@@ -23,18 +24,9 @@ spec:
         - -c
         - |
           echo "Job started at $(date)"
-          echo "Running simple logging job..."
+          echo "Running simple check job..."
           for i in $(seq 1 10); do
             echo "Log message $i - Current time: $(date)"
             sleep 1
           done
           echo "Job completed successfully at $(date)"
-        resources:
-          requests:
-            cpu: 50m
-            memory: 64Mi
-          limits:
-            cpu: 100m
-            memory: 128Mi
-  backoffLimit: 3
-  ttlSecondsAfterFinished: 300

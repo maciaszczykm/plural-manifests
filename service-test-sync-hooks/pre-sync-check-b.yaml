@@ -1,0 +1,31 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: pre-sync-check-b
+  namespace: default
+  labels:
+    app: pre-sync-check-b
+  annotations:
+    plural.sh/sync-wave: "8"
+    deployment.plural.sh/sync-hook: "pre-sync"
+spec:
+  template:
+    metadata:
+      labels:
+        app: pre-sync-check-b
+    spec:
+      restartPolicy: Never
+      containers:
+      - name: logger
+        image: busybox:1.35
+        command:
+        - /bin/sh
+        - -c
+        - |
+          echo "Job started at $(date)"
+          echo "Running simple check job..."
+          for i in $(seq 1 10); do
+            echo "Log message $i - Current time: $(date)"
+            sleep 1
+          done
+          echo "Job completed successfully at $(date)"
