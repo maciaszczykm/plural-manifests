@@ -6,7 +6,7 @@ metadata:
   labels:
     app: pre-sync-check-b
   annotations:
-    plural.sh/sync-wave: "8"
+    deployment.plural.sh/sync-wave: "8"
     deployment.plural.sh/sync-hook: "pre-sync"
 spec:
   template:
