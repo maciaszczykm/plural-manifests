@@ -3,7 +3,7 @@ kind: ServiceDeployment
 metadata:
   name: test-argo-cd
 spec:
-  namespace: test-headlamp
+  namespace: test-argo-cd
   helm:
     url: oci://ghcr.io/argoproj/argo-helm/argo-cd
     version: 8.5.9
