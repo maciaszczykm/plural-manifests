@@ -24,7 +24,7 @@ spec:
         - -c
         - |
           echo "Job started at $(date)"
-          echo "Running simple check job..."
+          echo "Running changed check job..."
           for i in $(seq 1 10); do
             echo "Log message $i - Current time: $(date)"
             sleep 1
