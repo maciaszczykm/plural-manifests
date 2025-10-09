@@ -1,0 +1,14 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: multi-hook-job
+  annotations:
+    "helm.sh/hook": pre-install,post-install
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: post-install
+          image: busybox
+          command: ['sh', '-c', 'echo "Running setup tasks..." && sleep 30']
