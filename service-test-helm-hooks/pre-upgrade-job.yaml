@@ -3,9 +3,9 @@ kind: Job
 metadata:
   name: pre-upgrade-job
   annotations:
-    "helm.sh/hook": pre-upgrade
-    "helm.sh/hook-weight": "0"
-    "helm.sh/hook-delete-policy": hook-succeeded
+    helm.sh/hook: pre-upgrade
+    helm.sh/hook-weight: "0"
+    helm.sh/hook-delete-policy: hook-succeeded
 spec:
   template:
     spec:
