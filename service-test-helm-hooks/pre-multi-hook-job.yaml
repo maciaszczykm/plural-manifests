@@ -4,6 +4,7 @@ metadata:
   name: pre-multi-hook-job
   annotations:
     helm.sh/hook: pre-install,pre-upgrade
+    helm.sh/hook-delete-policy: hook-succeeded
 spec:
   template:
     spec:
