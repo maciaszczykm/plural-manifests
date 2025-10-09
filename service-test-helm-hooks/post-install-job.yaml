@@ -14,4 +14,3 @@ spec:
         - name: post-install
           image: busybox
           command: ['sh', '-c', 'echo "Running post-install setup tasks..." && sleep 30']
-

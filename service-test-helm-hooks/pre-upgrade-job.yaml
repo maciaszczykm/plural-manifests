@@ -14,4 +14,3 @@ spec:
         - name: pre-upgrade
           image: busybox
           command: ['sh', '-c', 'echo "Backing up database before upgrade..." && sleep 30']
-

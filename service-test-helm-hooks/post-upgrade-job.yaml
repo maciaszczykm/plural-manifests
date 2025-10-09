@@ -14,20 +14,3 @@ spec:
         - name: post-upgrade
           image: busybox
           command: ['sh', '-c', 'echo "Validating upgrade success..." && sleep 30']
-apiVersion: batch/v1
-kind: Job
-metadata:
-  name: pre-install-job
-  annotations:
-    "helm.sh/hook": pre-install
-    "helm.sh/hook-weight": "0"
-    "helm.sh/hook-delete-policy": hook-succeeded
-spec:
-  template:
-    spec:
-      restartPolicy: Never
-      containers:
-        - name: pre-install
-          image: busybox
-          command: ['sh', '-c', 'echo "Running pre-install job..." && sleep 30']
-
