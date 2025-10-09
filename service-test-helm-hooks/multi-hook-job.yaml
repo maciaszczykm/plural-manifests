@@ -3,7 +3,7 @@ kind: Job
 metadata:
   name: multi-hook-job
   annotations:
-    "helm.sh/hook": pre-install #,post-install
+    "helm.sh/hook": post-install #,pre-install
 spec:
   template:
     spec:
