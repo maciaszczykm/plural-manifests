@@ -1,14 +1,14 @@
-apiVersion: deployments.plural.sh/v1alpha1
-kind: ServiceDeployment
-metadata:
-  name: test-argo-cd
-spec:
-  namespace: test-argo-cd
-  helm:
-    url: oci://ghcr.io/argoproj/argo-helm
-    version: 8.5.9
-    chart: argo-cd
-  clusterRef:
-    kind: Cluster
-    name: target-cluster
-    namespace: default
+#apiVersion: deployments.plural.sh/v1alpha1
+#kind: ServiceDeployment
+#metadata:
+#  name: test-argo-cd
+#spec:
+#  namespace: test-argo-cd
+#  helm:
+#    url: oci://ghcr.io/argoproj/argo-helm
+#    version: 8.5.9
+#    chart: argo-cd
+#  clusterRef:
+#    kind: Cluster
+#    name: target-cluster
+#    namespace: default
