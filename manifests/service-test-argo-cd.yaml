@@ -5,6 +5,7 @@ metadata:
 spec:
   namespace: test-argo-cd
   helm:
+    ignoreHooks: false
     url: oci://ghcr.io/argoproj/argo-helm
     version: 8.5.9
     chart: argo-cd
