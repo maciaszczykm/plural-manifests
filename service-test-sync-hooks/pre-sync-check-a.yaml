@@ -8,7 +8,7 @@ metadata:
   annotations:
     deployment.plural.sh/sync-wave: "-3"
     deployment.plural.sh/sync-hook: "pre-sync"
-    deployment.plural.sh/sync-hook-delete-policy: "succeeded"
+    deployment.plural.sh/sync-hook-delete-policy: hook-succeeded
 spec:
   template:
     metadata:
