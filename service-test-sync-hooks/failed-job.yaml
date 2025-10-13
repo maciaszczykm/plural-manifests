@@ -1,0 +1,18 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: failed-job
+  namespace: testing
+  annotations:
+    deployment.plural.sh/sync-hook: pre-sync
+    deployment.plural.sh/sync-wave: "1"
+    deployment.plural.sh/sync-hook-delete-policy: hook-failed
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: job
+          image: quay.io/prometheus/busybox:latest
+          command: ["/bin/sh","-c","echo job fails, should be deleted; exit 1"]
