@@ -1,0 +1,14 @@
+apiVersion: deployments.plural.sh/v1alpha1
+kind: ServiceDeployment
+metadata:
+  name: test-hydra
+spec:
+  namespace: test-hydra
+  helm:
+    url: https://k8s.ory.sh/helm/charts
+    version: 8.5.9
+    chart: hydra
+  clusterRef:
+    kind: Cluster
+    name: target-cluster
+    namespace: default
