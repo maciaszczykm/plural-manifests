@@ -1,0 +1,14 @@
+apiVersion: deployments.plural.sh/v1alpha1
+kind: Catalog
+metadata:
+  name: tests
+spec:
+  author: Plural
+  category: Test
+  description: Catalog of tests.
+  bindings:
+    create:
+      - userEmail: marcin@plural.sh
+  reconciliation:
+    driftDetection: false
+    interval: 1m
