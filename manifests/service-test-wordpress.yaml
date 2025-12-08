@@ -5,7 +5,7 @@ metadata:
 spec:
   namespace: test-wordpress
   helm:
-    url: https://charts.bitnami.com/bitnami
+    url: https://charts.bitnami.com
     version: 26.0.0
     values:
       image:
