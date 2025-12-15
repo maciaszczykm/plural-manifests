@@ -1,16 +1,16 @@
-#apiVersion: deployments.plural.sh/v1alpha1
-#kind: ServiceDeployment
-#metadata:
-#  name: test-failing
-#spec:
-#  namespace: test-failing
-#  git:
-#    folder: service-test-failing
-#    ref: main
-#  repositoryRef:
-#    kind: GitRepository
-#    name: plural-manifests
-#  clusterRef:
-#    kind: Cluster
-#    name: target-cluster
-#    namespace: default
+apiVersion: deployments.plural.sh/v1alpha1
+kind: ServiceDeployment
+metadata:
+  name: test-failing
+spec:
+  namespace: test-failing
+  git:
+    folder: service-test-failing
+    ref: main
+  repositoryRef:
+    kind: GitRepository
+    name: plural-manifests
+  clusterRef:
+    kind: Cluster
+    name: target-cluster
+    namespace: default

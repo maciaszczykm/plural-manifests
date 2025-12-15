@@ -1,14 +1,14 @@
-#apiVersion: deployments.plural.sh/v1alpha1
-#kind: ServiceDeployment
-#metadata:
-#  name: test-headlamp
-#spec:
-#  namespace: test-headlamp
-#  helm:
-#    url: https://kubernetes-sigs.github.io/headlamp/
-#    version: 0.35.0
-#    chart: headlamp
-#  clusterRef:
-#    kind: Cluster
-#    name: target-cluster
-#    namespace: default
+apiVersion: deployments.plural.sh/v1alpha1
+kind: ServiceDeployment
+metadata:
+  name: test-headlamp
+spec:
+  namespace: test-headlamp
+  helm:
+    url: https://kubernetes-sigs.github.io/headlamp/
+    version: 0.35.0
+    chart: headlamp
+  clusterRef:
+    kind: Cluster
+    name: target-cluster
+    namespace: default
