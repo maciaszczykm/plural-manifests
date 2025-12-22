@@ -2,8 +2,8 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: job
-  #annotations:
-    #deployment.plural.sh/sync-options: Force=True
+  annotations:
+    deployment.plural.sh/sync-options: Force=True
 spec:
   backoffLimit: 0
   template:
