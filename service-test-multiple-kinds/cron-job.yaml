@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: sample-cronjob
+  namespace: default
+spec:
+  schedule: "*/30 * * * *" # Runs every 30 minutes
+  concurrencyPolicy: Forbid
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        metadata:
+          labels:
+            app: sample-cronjob
+        spec:
+          restartPolicy: OnFailure
+          containers:
+            - name: hello
+              image: busybox:latest
+              imagePullPolicy: IfNotPresent
+              command:
+                - /bin/sh
+                - -c
+                - date; echo "Hello from the CronJob"
