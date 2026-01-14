@@ -16,5 +16,5 @@ spec:
             [
               "sh",
               "-c",
-              'echo "Running before-hook-creation job..." && sleep 10',
+              'echo "Running before-hook-creation job..." && sleep 30',
             ]
