@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: before-hook-creation
+  annotations:
+    helm.sh/hook: pre-install,pre-upgrade
+    helm.sh/hook-delete-policy: before-hook-creation
+spec:
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: hook-job
+          image: busybox
+          command:
+            [
+              "sh",
+              "-c",
+              'echo "Running before-hook-creation job..." && sleep 10',
+            ]
