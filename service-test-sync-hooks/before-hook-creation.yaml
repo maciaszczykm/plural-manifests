@@ -5,6 +5,7 @@ metadata:
   annotations:
     helm.sh/hook: pre-install,pre-upgrade
     helm.sh/hook-delete-policy: before-hook-creation
+    deployment.plural.sh/sync-options: Force=True
 spec:
   template:
     spec:
