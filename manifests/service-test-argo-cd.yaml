@@ -13,6 +13,7 @@ spec:
         jobAnnotations:
           deployment.plural.sh/sync-hook-delete-policy: hook-succeeded
           deployment.plural.sh/sync-options: Force=True
+          test: 123
   clusterRef:
     kind: Cluster
     name: target-cluster
