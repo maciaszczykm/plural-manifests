@@ -12,6 +12,7 @@ spec:
       redisSecretInit:
         jobAnnotations:
           deployment.plural.sh/sync-hook-delete-policy: hook-succeeded
+          deployment.plural.sh/sync-options: Force=True
   clusterRef:
     kind: Cluster
     name: target-cluster
