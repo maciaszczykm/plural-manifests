@@ -6,8 +6,12 @@ spec:
   namespace: test-argo-cd
   helm:
     url: oci://ghcr.io/argoproj/argo-helm
-    version: 8.5.9
+    version: 9.1.3
     chart: argo-cd
+    values:
+      redisSecretInit:
+        jobAnnotations:
+          deployment.plural.sh/sync-hook-delete-policy: hook-succeeded
   clusterRef:
     kind: Cluster
     name: target-cluster
