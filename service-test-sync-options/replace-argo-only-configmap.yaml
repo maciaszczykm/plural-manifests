@@ -6,3 +6,4 @@ metadata:
     argocd.argoproj.io/sync-options: replace=true
 data:
   example: "true"
+  test: "abc"
