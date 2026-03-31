@@ -14,6 +14,6 @@ spec:
     spec:
       restartPolicy: Never
       containers:
-        - name: job
+        - name: changed
           image: quay.io/prometheus/busybox:latest
           command: ["/bin/sh", "-c", "echo replace-force-job completed; exit 0"]
