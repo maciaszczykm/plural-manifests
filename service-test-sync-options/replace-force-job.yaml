@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: replace-force-job
+  annotations:
+    # replace=true,force=true enables the delete+recreate escalation path.
+    # Jobs have an immutable spec.selector and spec.template after creation,
+    # so a plain update (SSA or PUT) fails with a 422. The force escalation
+    # deletes the existing Job and recreates it with the new spec.
+    deployment.plural.sh/sync-options: replace=true,force=true
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: job
+          image: quay.io/prometheus/busybox:latest
+          command: ["/bin/sh", "-c", "echo replace-force-job completed; exit 0"]
