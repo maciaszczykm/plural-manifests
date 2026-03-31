@@ -7,7 +7,7 @@ metadata:
     # Jobs have an immutable spec.selector and spec.template after creation,
     # so a plain update (SSA or PUT) fails with a 422. The force escalation
     # deletes the existing Job and recreates it with the new spec.
-    deployment.plural.sh/sync-options: replace=true
+    deployment.plural.sh/sync-options: replace=true,force=true
 spec:
   backoffLimit: 0
   template:
