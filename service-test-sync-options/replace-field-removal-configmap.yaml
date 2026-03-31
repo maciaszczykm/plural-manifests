@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: replace-field-removal
+  annotations:
+    deployment.plural.sh/sync-options: replace=true
+data:
+  key1: "value1"
+  key2: "value2"
