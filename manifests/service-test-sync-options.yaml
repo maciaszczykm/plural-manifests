@@ -1,0 +1,16 @@
+apiVersion: deployments.plural.sh/v1alpha1
+kind: ServiceDeployment
+metadata:
+  name: test-sync-options
+spec:
+  namespace: test-sync-options
+  git:
+    folder: service-test-sync-options
+    ref: main
+  repositoryRef:
+    kind: GitRepository
+    name: plural-manifests
+  clusterRef:
+    kind: Cluster
+    name: target-cluster
+    namespace: default
