@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: replace-argo-only
-  annotations: {}
-  #   argocd.argoproj.io/sync-options: replace=true
+  annotations:
+    argocd.argoproj.io/sync-options: replace=true
 data:
   example: "true"
