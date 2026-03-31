@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: replace-force-deployment
+  annotations:
+    deployment.plural.sh/sync-options: replace=true,force=true
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: replace-force
+  template:
+    metadata:
+      labels:
+        app: replace-force
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.27.0
+          ports:
+            - containerPort: 8080
