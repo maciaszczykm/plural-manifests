@@ -2,7 +2,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: replace-force-job
-  annotations:
+  # annotations:
     # replace=true,force=true enables the delete+recreate escalation path.
     # Jobs have an immutable spec.selector and spec.template after creation,
     # so a plain update (SSA or PUT) fails with a 422. The force escalation
